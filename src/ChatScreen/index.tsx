@@ -1,6 +1,16 @@
+import AddIcon from "@mui/icons-material/Add";
+import AddCommentIcon from "@mui/icons-material/AddComment";
+import AdjustIcon from "@mui/icons-material/Adjust";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import DoneAllIcon from "@mui/icons-material/DoneAll";
+import FilterListIcon from "@mui/icons-material/FilterList";
+import GroupsIcon from "@mui/icons-material/Groups";
+import MicIcon from "@mui/icons-material/Mic";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import SearchIcon from "@mui/icons-material/Search";
+import SendIcon from "@mui/icons-material/Send";
+import TagFacesIcon from "@mui/icons-material/TagFaces";
 import {
-  Button,
-  Icon,
   IconButton,
   InputAdornment,
   Menu,
@@ -10,34 +20,22 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useContext, useEffect, useState } from "react";
-import { chatScreen, contactsScreen, conversationScreen } from "../Styles";
-import SendIcon from "@mui/icons-material/Send";
-import FilterListIcon from "@mui/icons-material/FilterList";
-import SearchIcon from "@mui/icons-material/Search";
-import GroupsIcon from "@mui/icons-material/Groups";
-import AdjustIcon from "@mui/icons-material/Adjust";
-import AddCommentIcon from "@mui/icons-material/AddComment";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import MicIcon from "@mui/icons-material/Mic";
-import AddIcon from "@mui/icons-material/Add";
-import TagFacesIcon from "@mui/icons-material/TagFaces";
-import DoneAllIcon from "@mui/icons-material/DoneAll";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { EachContact } from "../EachContact";
 import { getAuth, signOut } from "firebase/auth";
-import { app, db } from "../firebaseConfig";
 import {
-  getDoc,
-  doc,
-  getDocs,
   collection,
-  setDoc,
+  doc,
+  getDoc,
+  getDocs,
   onSnapshot,
+  setDoc,
 } from "firebase/firestore";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { EachContact } from "../EachContact";
+import { chatScreen, contactsScreen, conversationScreen } from "../Styles";
 import webPic from "../assets/webWhatsapp.png";
 import { ChatContext } from "../context/ChatContext";
+import { app, db } from "../firebaseConfig";
 
 interface singleUser {
   name: string;
@@ -212,6 +210,7 @@ const ChatScreen = () => {
     });
   };
 
+  console.log("hellow ro");
   useEffect(() => {
     gettingData();
     const unsub = onSnapshot(
